@@ -13,7 +13,7 @@ conj_mana = "Conjured Mana Cake"
 
 class GildedRoseTest(unittest.TestCase):
     def test_sulfuras(self):
-        items = Sulfuras()
+        items = Sulfuras(0, 80)
         assert items.name == "Sulfuras, Hand of Ragnaros"
         assert items.quality == 80
         assert items.sell_in == 0

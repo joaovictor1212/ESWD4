@@ -23,12 +23,11 @@ class Item:
     quality_max = 50
 
 
-    def __init__(self, name, sell_in, quality):
+    def __init__(self, sell_in, quality):
         
         assert quality >= self.quality_min
         assert quality <= self.quality_max
 
-        self.name = name
         self.sell_in = sell_in
         self.quality = quality
 
@@ -56,8 +55,7 @@ class Sulfuras(Item):
     quality_min = 80
     quality_max = 80
 
-    def __init__(self):
-       super().__init__(name,0,80)
+ 
 
 
 
