@@ -33,32 +33,18 @@ class Item:
 
     
     def next_day(self):
+        self.sell_in = self.sell_in - 1
+
         diff = self.discount
-        if self.quality < 0:
+        if self.sell_in < 0:
             diff *= 2
         
         self.quality = self.quality - diff
         self.quality = max(self.quality_min, self.quality)
         self.quality = min(self.quality_min, self.quality)
-        self.sell_in -= 1
             
 
-class AgedBrie(Item):
-    name = "Aged Brie"
-    discount = -1
-
-
-class Sulfuras(Item):
-
-    name = "Sulfuras, Hand of Ragnaros"
-    discount = 0
-    quality_min = 80
-    quality_max = 80
-
  
-
-
-
 
 class Tickets(Item):
     name = "Backstage passes to a TAFKAL80ETC concert"
@@ -92,3 +78,50 @@ class GildedRose(object):
     def update_quality(self):
         for item in self.items:
             item.next_day()
+
+
+
+# class OGGildedRose(object):
+
+#     def __init__(self, items):
+#         self.items = items
+
+#     def update_quality(self):
+#         for item in self.items:
+#             if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
+#                 if item.quality > 0:
+#                     if item.name != "Sulfuras, Hand of Ragnaros":
+#                         item.quality = item.quality - 1
+#             else:
+#                 if item.quality < 50:
+#                     item.quality = item.quality + 1
+#                     if item.name == "Backstage passes to a TAFKAL80ETC concert":
+#                         if item.sell_in < 11:
+#                             if item.quality < 50:
+#                                 item.quality = item.quality + 1
+#                         if item.sell_in < 6:
+#                             if item.quality < 50:
+#                                 item.quality = item.quality + 1
+#             if item.name != "Sulfuras, Hand of Ragnaros":
+#                 item.sell_in = item.sell_in - 1
+#             if item.sell_in < 0:
+#                 if item.name != "Aged Brie":
+#                     if item.name != "Backstage passes to a TAFKAL80ETC concert":
+#                         if item.quality > 0:
+#                             if item.name != "Sulfuras, Hand of Ragnaros":
+#                                 item.quality = item.quality - 1
+#                     else:
+#                         item.quality = item.quality - item.quality
+#                 else:
+#                     if item.quality < 50:
+#                         item.quality = item.quality + 1
+
+
+# class OGItem:
+#     def __init__(self, name, sell_in, quality):
+#         self.name = name
+#         self.sell_in = sell_in
+#         self.quality = quality
+
+#     def __repr__(self):
+#         return "%s, %s, %s" % (self.name, self.sell_in, self.quality)

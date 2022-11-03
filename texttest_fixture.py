@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-from gilded_rose import Item, GildedRose
+from gilded_rose import Item, GildedRose 
 from tabulate import tabulate
 
 if __name__ == "__main__":
